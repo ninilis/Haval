@@ -1,0 +1,408 @@
+/* ============================================
+   ШРИФТЫ (заглушки, реальные файлы добавите сами)
+   ============================================ */
+@font-face {
+    font-family: 'Haval';
+    src: url('../fonts/Haval-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Haval';
+    src: url('../fonts/Haval-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+}
+
+/* ============================================
+   ПЕРЕМЕННЫЕ
+   ============================================ */
+:root {
+    --color-lazurit: #00CABF;
+    --color-lazurit-dark: #23a5af;
+    --color-bg-beige: #F3F3F3;
+    --color-black: #000;
+    --color-white: #fff;
+
+    --shadow-default: 0px 0px 3px 0px rgba(0, 0, 0, 0.12), 0px 3px 3px 0px rgba(0, 0, 0, 0.24);
+
+    --font-family: 'Haval', sans-serif;
+
+    --font-weight-thin: 100;
+    --font-weight-regular: 400;
+    --font-weight-bold: 700;
+    --font-weight-black: 900;
+
+    --btn-height: 40px;
+    --btn-border-radius: 3px;
+}
+
+
+/* ============================================
+   БАЗОВЫЕ СТИЛИ
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.wrapper {
+    max-width: 1920px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+body {
+    font-family: var(--font-family);
+}
+/* ============================================
+   ШАПКА
+   ============================================ */
+.entry {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+.entry_container {
+    max-width: 1920px;
+    margin: 0 auto;
+    height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: center;      /* ← как в меню */
+    padding: 0 20px;             /* ← отступы от краёв (регулируйте) */
+}
+
+.social {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 150px;                   /* ← расстояние между элементами (регулируйте) */
+    margin: 0;
+    padding: 0;
+}
+
+.social li {
+    display: flex;
+    align-items: center;
+}
+
+.social_link {
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.social_link img {
+    flex-shrink: 0;
+}
+
+.phone_number {
+    font-size: 15px;
+}
+
+.address_text {
+    display: inline-block;
+    line-height: 1.4;
+    font-size: 13px;
+}
+
+/* ============================================
+   МЕНЮ
+   ============================================ */
+.menu {
+    max-width: 1920px;
+    margin: 0 auto;
+    height: 33px;
+    display: flex;
+    align-items: center;
+    justify-content: center;          /* центрируем оба списка */
+    gap: 40px;                        /* расстояние между списками */
+    padding: 0 20px;
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+.menu_list_car,
+.menu_list_info {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    padding: 0;
+    margin: 0;
+}
+
+.menu_link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 11px;
+    white-space: nowrap;
+    text-transform: uppercase;        /* все буквы заглавные */
+}
+
+/* ============================================
+   ТАЙМЕР + КНОПКА
+   ============================================ */
+.promotion {
+    max-width: 1920px;
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+.promotion__container {
+    width: 100%;
+    height: 205px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.promotion__timer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.promotion__timer-text {
+    margin: 0 0 8px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+    text-align: center;
+}
+
+.timer-wrapper {
+    width: 571px;
+    height: 130px;
+    overflow: hidden;
+    position: relative;
+    opacity: 0;                       /* скрыт до показа */
+    transition: opacity 0.3s ease;
+}
+
+.timer-wrapper.visible {
+    opacity: 1;
+}
+
+.timer-wrapper .sinoby-timer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.promotion__button {
+    width: 467px;
+    height: 70px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: var(--color-lazurit);
+    color: #fff;
+    border: none;
+    border-radius: var(--btn-border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.promotion__button:hover {
+    background-color: var(--color-lazurit-dark);
+}
+
+/* ============================================
+   КАРТОЧКИ ТОВАРА
+   ============================================ */
+.car-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 560px);
+    gap: 20px;
+    justify-content: center;
+    padding: 40px 20px;
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+.car-card {
+    width: 560px;
+    height: 885px;
+    box-sizing: border-box;
+    position: relative;
+    padding-top: 22px;
+}
+
+.car-card__inner {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-bg-beige);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px 20px;
+    position: relative;
+}
+
+.car-card__label {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 44px;
+    padding: 0 15px;
+    background-color: var(--color-lazurit);
+    color: #fff;
+    font-size: 13px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    z-index: 2;
+}
+
+.car-card__header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.car-card__title {
+    font-size: 24px;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-black);
+    margin: 0;
+}
+
+.car-card__test-drive {
+    color: var(--color-lazurit);
+    text-decoration: none;
+    font-size: 14px;
+    border-bottom: 1px dashed var(--color-lazurit);
+    transition: color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.car-card__test-drive:hover {
+    color: var(--color-lazurit-dark);
+}
+
+.car-card__benefit {
+    font-size: 16px;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-black);
+    margin-bottom: 15px;
+    align-self: flex-start;
+}
+
+.car-card__image-block {
+    width: 480px;
+    height: 356px;
+    position: relative;
+    margin-bottom: 15px;
+    background-color: transparent;
+    overflow: hidden;
+}
+
+.car-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+}
+
+.car-image.active {
+    opacity: 1;
+}
+
+.car-card__colors {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.color-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.color-dot:hover {
+    transform: scale(1.2);
+}
+
+.color-dot.active {
+    border-color: var(--color-lazurit);
+    box-shadow: 0 0 0 1px var(--color-lazurit);
+}
+
+.car-card__features {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 20px;
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 13px;
+    color: var(--color-black);
+    padding: 0 10px;
+}
+
+.car-card__features li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.car-card__features li::before {
+    display: none;                    /* убираем старые маркеры */
+}
+
+.car-card__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 480px;
+    margin-top: auto;
+}
+
+.btn-card {
+    width: 100%;
+    height: 60px;
+    border-radius: var(--btn-border-radius);
+    font-size: 16px;
+    font-weight: var(--font-weight-bold);
+    background-color: var(--color-lazurit);
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-card:hover {
+    background-color: var(--color-lazurit-dark);
+}
