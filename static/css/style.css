@@ -80,7 +80,7 @@ body {
     list-style: none;
     display: flex;
     align-items: center;
-    gap: 150px;                   /* ← расстояние между элементами (регулируйте) */
+    gap: 100px;                   /* ← расстояние между элементами (регулируйте) */
     margin: 0;
     padding: 0;
 }
@@ -94,7 +94,7 @@ body {
     color: var(--color-white);
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
     text-decoration: none;
     white-space: nowrap;
 }
@@ -122,8 +122,8 @@ body {
     height: 33px;
     display: flex;
     align-items: center;
-    justify-content: center;          /* центрируем оба списка */
-    gap: 40px;                        /* расстояние между списками */
+    justify-content: center;
+    gap: 16px;
     padding: 0 20px;
     background-color: var(--color-black);
     color: var(--color-white);
@@ -133,9 +133,14 @@ body {
 .menu_list_info {
     list-style: none;
     display: flex;
-    gap: 25px;
+    gap: 17px;
     padding: 0;
     margin: 0;
+}
+
+.menu_link:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;   /* расстояние от текста до линии */
 }
 
 .menu_link {
@@ -161,7 +166,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 40px;
+    gap: 100px;
 }
 
 .promotion__timer {
@@ -169,14 +174,16 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 11px;
 }
 
 .promotion__timer-text {
     margin: 0 0 8px 0;
     font-size: 16px;
     font-weight: 600;
-    color: #000;
+    color: var(--color-black);
     text-align: center;
+    text-transform: uppercase;
 }
 
 .timer-wrapper {
@@ -203,10 +210,9 @@ body {
 .promotion__button {
     width: 467px;
     height: 70px;
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 16px;
     background-color: var(--color-lazurit);
-    color: #fff;
+    color: var(--color-white);
     border: none;
     border-radius: var(--btn-border-radius);
     cursor: pointer;
@@ -214,6 +220,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    text-transform: uppercase;
+    font-family: var(--font-family);
 }
 
 .promotion__button:hover {
@@ -223,6 +231,8 @@ body {
 /* ============================================
    КАРТОЧКИ ТОВАРА
    ============================================ */
+
+/* Сетка карточек */
 .car-cards-grid {
     display: grid;
     grid-template-columns: repeat(3, 560px);
@@ -233,95 +243,136 @@ body {
     margin: 0 auto;
 }
 
+/* Внешняя оболочка карточки */
 .car-card {
     width: 560px;
-    height: 885px;
+    height: 885px;                /* фиксированная высота карточки */
     box-sizing: border-box;
     position: relative;
-    padding-top: 22px;
+    padding-top: 22px;            /* пространство для выступающей плашки */
+    background: var(--color-white);
 }
 
+/* Внутренний бежевый контейнер */
 .car-card__inner {
     width: 100%;
-    height: 100%;
+    height: 100%;                /* займёт оставшиеся 863px */
     background-color: var(--color-bg-beige);
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 30px 20px 20px;
     position: relative;
+    padding: 0;                  /* убираем верхний padding, управляем отступами внутри */
 }
 
+/* Белый блок с обводкой (название, тест-драйв, выгода, машина, цвета) */
+.car-card__product {
+    width: 480px;
+    min-height: 365px;           /* минимальная высота */
+    height: auto;                /* позволяет расти, если контент не влезает */
+    background-color: #fff;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    flex-shrink: 0;
+    position: relative;          /* для позиционирования плашки */
+    margin-top: 30px;            /* отступ сверху, чтобы плашка не обрезалась */
+    margin-bottom: 20px;         /* расстояние до преимуществ */
+    padding: 20px 15px 0 15px;     /* внутренние отступы */
+    box-sizing: border-box;
+    overflow: visible;           /* плашка может выходить за пределы */
+}
+
+/* Плашка "В наличии" – абсолютное позиционирование относительно белого блока */
 .car-card__label {
     position: absolute;
-    top: 0;
+    top: -22px;                  /* половина высоты плашки выступает над белым блоком */
     right: 0;
     height: 44px;
     padding: 0 15px;
     background-color: var(--color-lazurit);
-    color: #fff;
+    color: var(--color-white);
     font-size: 13px;
     font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
     white-space: nowrap;
-    z-index: 2;
+    z-index: 3;
+    text-transform: uppercase;
 }
 
+/* Заголовок и ссылка на тест-драйв */
 .car-card__header {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .car-card__title {
-    font-size: 24px;
+    font-size: 22px;             /* слегка уменьшен, чтобы вписаться в 480px */
     font-weight: var(--font-weight-bold);
     color: var(--color-black);
     margin: 0;
+    text-transform: uppercase;
 }
 
 .car-card__test-drive {
     color: var(--color-lazurit);
     text-decoration: none;
     font-size: 14px;
-    border-bottom: 1px dashed var(--color-lazurit);
-    transition: color 0.2s;
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    white-space: nowrap;
+    transition: color 0.2s;
 }
 
 .car-card__test-drive:hover {
     color: var(--color-lazurit-dark);
 }
 
+/* Выгода */
 .car-card__benefit {
     font-size: 16px;
     font-weight: var(--font-weight-bold);
     color: var(--color-black);
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     align-self: flex-start;
 }
 
+/* Блок с изображением машины и фоновой маской */
 .car-card__image-block {
-    width: 480px;
-    height: 356px;
+    width: 100%;
+    height: 280px;
     position: relative;
-    margin-bottom: 15px;
-    background-color: transparent;
     overflow: hidden;
+    margin-bottom: 10px;
+    background: transparent; /* убираем маску */
+    z-index: 1;
 }
 
-.car-image {
+.car-card__mask {
     position: absolute;
-    top: 0;
+    bottom: 0;               /* упирается в нижний край белого блока */
     left: 0;
     width: 100%;
-    height: 100%;
+    height: auto;            /* сохраняем пропорции */
+    z-index: 0;              /* поверх белого фона, но под кружками */
+    pointer-events: none;    /* чтобы не перехватывала клики */
+}
+
+/* Слои машин */
+.car-image {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%;                  /* чуть уже, чтобы гарантированно вписаться */
+    height: auto;
+    max-height: 100%;
     object-fit: contain;
     opacity: 0;
     transition: opacity 0.25s ease;
@@ -332,16 +383,18 @@ body {
     opacity: 1;
 }
 
+/* Цветовые кружки */
 .car-card__colors {
     display: flex;
     justify-content: center;
     gap: 12px;
-    margin-bottom: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .color-dot {
-    width: 20px;
-    height: 20px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     border: 2px solid #ccc;
     cursor: pointer;
@@ -357,16 +410,17 @@ body {
     box-shadow: 0 0 0 1px var(--color-lazurit);
 }
 
+/* Список преимуществ */
 .car-card__features {
+    width: 480px;                /* как ширина белого блока */
+    margin: 0 auto 15px;        /* центрируем и отступ снизу */
+    padding: 0 10px;
     list-style: none;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px 20px;
-    width: 100%;
-    margin-bottom: 20px;
     font-size: 13px;
     color: var(--color-black);
-    padding: 0 10px;
 }
 
 .car-card__features li {
@@ -376,15 +430,16 @@ body {
 }
 
 .car-card__features li::before {
-    display: none;                    /* убираем старые маркеры */
+    display: none;
 }
 
+/* Кнопки */
 .car-card__buttons {
+    width: 480px;
+    margin: auto auto 20px;      /* прижимаем к низу бежевого контейнера */
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 480px;
-    margin-top: auto;
 }
 
 .btn-card {
