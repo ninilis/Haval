@@ -235,10 +235,10 @@ body {
 /* Сетка карточек */
 .car-cards-grid {
     display: grid;
-    grid-template-columns: repeat(3, 560px);
+    grid-template-columns: repeat(2, 560px);
     gap: 20px;
     justify-content: center;
-    padding: 40px 20px;
+    padding: 64px 20px;
     max-width: 1920px;
     margin: 0 auto;
 }
@@ -285,14 +285,13 @@ body {
 /* Плашка "В наличии" – абсолютное позиционирование относительно белого блока */
 .car-card__label {
     position: absolute;
-    top: -22px;                  /* половина высоты плашки выступает над белым блоком */
-    right: 0;
+    top: -30px;                  /* половина высоты плашки выступает над белым блоком */
+    right: 55px;
     height: 44px;
     padding: 0 15px;
     background-color: var(--color-lazurit);
     color: var(--color-white);
     font-size: 13px;
-    font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -300,6 +299,7 @@ body {
     white-space: nowrap;
     z-index: 3;
     text-transform: uppercase;
+    min-width: 187px;
 }
 
 /* Заголовок и ссылка на тест-драйв */
@@ -308,15 +308,20 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 8px;
+    margin-bottom: 25px;
+    margin-top: 10px;
 }
 
 .car-card__title {
     font-size: 22px;             /* слегка уменьшен, чтобы вписаться в 480px */
-    font-weight: var(--font-weight-bold);
     color: var(--color-black);
     margin: 0;
     text-transform: uppercase;
+}
+
+.highlight {
+    color: var(--color-lazurit);
+    font-weight: bold;
 }
 
 .car-card__test-drive {
@@ -336,27 +341,24 @@ body {
 
 /* Выгода */
 .car-card__benefit {
-    font-size: 16px;
-    font-weight: var(--font-weight-bold);
+    font-size: 20px;
     color: var(--color-black);
-    margin-bottom: 10px;
     align-self: flex-start;
 }
 
 /* Блок с изображением машины и фоновой маской */
 .car-card__image-block {
     width: 100%;
-    height: 280px;
+    height: 250px;
     position: relative;
     overflow: hidden;
-    margin-bottom: 10px;
     background: transparent; /* убираем маску */
     z-index: 1;
 }
 
 .car-card__mask {
     position: absolute;
-    bottom: 0;               /* упирается в нижний край белого блока */
+    bottom: 0;              /* упирается в нижний край белого блока */
     left: 0;
     width: 100%;
     height: auto;            /* сохраняем пропорции */
@@ -367,10 +369,10 @@ body {
 /* Слои машин */
 .car-image {
     position: absolute;
-    top: 65%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 85%;                  /* чуть уже, чтобы гарантированно вписаться */
+    width: 100%;                  /* чуть уже, чтобы гарантированно вписаться */
     height: auto;
     max-height: 100%;
     object-fit: contain;
@@ -388,8 +390,8 @@ body {
     display: flex;
     justify-content: center;
     gap: 12px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 0;
+    margin-bottom: 30px;
 }
 
 .color-dot {
@@ -447,7 +449,6 @@ body {
     height: 60px;
     border-radius: var(--btn-border-radius);
     font-size: 16px;
-    font-weight: var(--font-weight-bold);
     background-color: var(--color-lazurit);
     border: none;
     color: #fff;
@@ -456,8 +457,32 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    text-transform: uppercase;
+    font-family: var(--font-family);
 }
 
 .btn-card:hover {
     background-color: var(--color-lazurit-dark);
 }
+
+/* Чёрная кнопка */
+.btn-card--dark {
+    background-color: var(--color-black);
+    color: #fff;
+    border: none;
+}
+.btn-card--dark:hover {
+    background-color: #333;
+}
+
+/* Бежевая кнопка с чёрной обводкой */
+.btn-card--outline {
+    background-color: var(--color-bg-beige);
+    color: var(--color-black);
+    border: 2px solid var(--color-black);
+}
+.btn-card--outline:hover {
+    background-color: #e9e9e9;
+}
+
+
