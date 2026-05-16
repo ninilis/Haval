@@ -80,7 +80,7 @@ body {
     list-style: none;
     display: flex;
     align-items: center;
-    gap: 100px;                   /* ← расстояние между элементами (регулируйте) */
+    gap: 90px;                   /* ← расстояние между элементами (регулируйте) */
     margin: 0;
     padding: 0;
 }
@@ -157,7 +157,7 @@ body {
 .promotion {
     max-width: 1920px;
     margin: 0 auto;
-    background-color: #fff;
+    background-color: var(--color-bg-beige);
 }
 
 .promotion__container {
@@ -174,11 +174,11 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 11px;
+    margin-top: 25px;
 }
 
 .promotion__timer-text {
-    margin: 0 0 8px 0;
+    margin: 0 0 10px 0;
     font-size: 16px;
     font-weight: 600;
     color: var(--color-black);
@@ -238,7 +238,7 @@ body {
     grid-template-columns: repeat(2, 560px);
     gap: 20px;
     justify-content: center;
-    padding: 64px 20px;
+    padding: 62px 20px;
     max-width: 1920px;
     margin: 0 auto;
 }
@@ -275,7 +275,7 @@ body {
     border-radius: 4px;
     flex-shrink: 0;
     position: relative;          /* для позиционирования плашки */
-    margin-top: 30px;            /* отступ сверху, чтобы плашка не обрезалась */
+    margin-top: 40px;            /* отступ сверху, чтобы плашка не обрезалась */
     margin-bottom: 20px;         /* расстояние до преимуществ */
     padding: 20px 15px 0 15px;     /* внутренние отступы */
     box-sizing: border-box;
@@ -354,6 +354,7 @@ body {
     overflow: hidden;
     background: transparent; /* убираем маску */
     z-index: 1;
+    cursor: pointer;
 }
 
 .car-card__mask {
@@ -423,12 +424,18 @@ body {
     gap: 10px 20px;
     font-size: 13px;
     color: var(--color-black);
+    cursor: pointer;
 }
+
 
 .car-card__features li {
     display: flex;
     align-items: center;
     gap: 8px;
+}
+
+.car-card__features li:hover {
+    color: var(--color-lazurit);
 }
 
 .car-card__features li::before {
@@ -480,6 +487,7 @@ body {
     background-color: var(--color-bg-beige);
     color: var(--color-black);
     border: 2px solid var(--color-black);
+    margin-bottom: 20px;
 }
 .btn-card--outline:hover {
     background-color: #e9e9e9;
