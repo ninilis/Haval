@@ -5,7 +5,7 @@
 Адаптирован под мобильные устройства (планшеты, смартфоны).
 
 ## Демо-версия
-[GitHub Pages](https://ваш_логин.github.io/haval-test/).
+https://ninilis.github.io/Haval/
 
 ## Стек
 - **HTML5** (семантика, SVG-графика)
