@@ -263,7 +263,7 @@ body {
     margin-bottom: 20px;
     padding: 20px 15px 0 15px;
     box-sizing: border-box;
-    overflow: visible;
+    overflow: hidden;
 }
 
 .car-card__label {
